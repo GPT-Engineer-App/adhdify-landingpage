@@ -1,4 +1,7 @@
-dist
-node_modules
-.env.local
-.DS_Store
+#!/bin/sh
+
+# Ignore node_modules, dist, .env.local, and .DS_Store during git add
+git add . --ignore-removal .DS_Store
+git add . --ignore-removal node_modules
+git add . --ignore-removal dist
+git add . --ignore-removal .env.local
