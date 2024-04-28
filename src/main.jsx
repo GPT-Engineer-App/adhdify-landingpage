@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
+// Add your custom colors to the theme
 const colors = {
   brand: {
     900: "#1a365d",
@@ -11,12 +12,19 @@ const colors = {
   },
 };
 
+// Extend the Chakra UI theme with your custom colors
 const theme = extendTheme({ colors });
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+// Enable React strict mode for better development experience
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
+    {/* Wrap your app with ChakraProvider to enable Chakra UI styles */}
     <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
   </React.StrictMode>
 );
+
+// Print theme configuration to the console for easier debugging
+console.log("Chakra UI theme configuration:", theme);
