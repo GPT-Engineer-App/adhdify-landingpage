@@ -1,13 +1,15 @@
-version: "2"
+# docker-compose.yml
+
+version: "3.9"  # Use the latest stable version
 services:
   node:
-    image: "node:current"
-    user: "node"
-    working_dir: /home/node/app
+    image: node:latest  # Use the latest Node.js image
+    user: node
+    working_dir: /app  # Use a standardized working directory
     environment:
-      - NODE_ENV=development
+      NODE_ENV: development  # Use environment variables for better configuration management
     volumes:
-      - ./:/home/node/app
+      - .:/app  # Use a standardized volume mount path
     ports:
       - "8080:8080"
-    command: "sh run.sh"
+    entrypoint: ["sh", "run.sh"]  # Use the entrypoint instruction for better readability
